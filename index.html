@@ -20,6 +20,12 @@ svg {
   stroke-width: 1.2px;
 }
 
+.brush .extent {
+  fill-opacity: .3;
+  fill: #a7554b;
+  shape-rendering: crispEdges;
+}
+
 
 .axis .title {
   font-size: 10px;
@@ -187,6 +193,16 @@ d3.csv("Tracts_Neighborhoods.csv", function(error, data) {
       .data(data)
     .enter().append("path")
       .attr("d", draw);
+
+      //add title
+
+  svg.append("text")
+    .attr("x", (540))
+    .attr("y", (-80))
+    .attr("text-anchor", "middle")
+    .style("font-size", "16px")
+    .style("text-decoration", "underline")
+    .text ("Mapping Boston's Tree Equity through Parallel Coordinates")
 
   dimension.append("g")
       .attr("class", "axis")
